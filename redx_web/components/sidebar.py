@@ -1,6 +1,7 @@
 """Sidebar component for the app."""
 
 from .. import styles
+from ..stylesRD.colors import Color
 
 import reflex as rx
 
@@ -34,13 +35,13 @@ def sidebar_footer() -> rx.Component:
     return rx.hstack(
         rx.link(
             rx.text("Docs", size="3"),
-            href="https://reflex.dev/docs/getting-started/introduction/",
+            href="/",
             color_scheme="gray",
             underline="none",
         ),
         rx.link(
             rx.text("Blog", size="3"),
-            href="https://reflex.dev/blog/",
+            href="/",
             color_scheme="gray",
             underline="none",
         ),
@@ -178,5 +179,5 @@ def sidebar() -> rx.Component:
         top="0px",
         left="0px",
         flex="1",
-        bg=rx.color("gray", 2),
+        bg=Color.NAVBAR_FOOTER.value,
     )

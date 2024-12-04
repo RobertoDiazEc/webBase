@@ -5,6 +5,7 @@ from __future__ import annotations
 from .. import styles
 from ..components.sidebar import sidebar
 from ..components.navbar import navbar
+from ..components.footer import footer
 from typing import Callable
 
 import reflex as rx
@@ -52,6 +53,7 @@ def template(
     meta: str | None = None,
     script_tags: list[rx.Component] | None = None,
     on_load: rx.EventHandler | list[rx.EventHandler] | None = None,
+    routeimagen: str | None = None
 ) -> Callable[[Callable[[], rx.Component]], rx.Component]:
     """The template for each page of the app.
 
@@ -80,9 +82,10 @@ def template(
         all_meta = [*default_meta, *(meta or [])]
 
         def templated_page():
-            return rx.flex(
+            return rx.box(
                 navbar(),
                 sidebar(),
+                rx.image(src=routeimagen, width="100%"),
                 rx.flex(
                     rx.vstack(
                         page_content(),
@@ -100,6 +103,7 @@ def template(
                         styles.max_width,
                     ],
                 ),
+                footer(),
                 flex_direction=[
                     "column",
                     "column",
@@ -112,7 +116,7 @@ def template(
                 margin="auto",
                 position="relative",
             )
-
+       
         @rx.page(
             route=route,
             title=title,

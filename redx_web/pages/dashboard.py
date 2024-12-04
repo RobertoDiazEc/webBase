@@ -7,8 +7,8 @@ from ..views.table import main_table
 import reflex as rx
 import reflex_chakra as rc
 
-@template(route="/", title="Dashboard1", on_load=TableState.load_entries)
-def dashboard1() -> rx.Component:
+@template(route="/Dashboard", title="Dashboard", on_load=TableState.load_entries)
+def dashboard() -> rx.Component:
     """The dashboard page.
 
     Returns:

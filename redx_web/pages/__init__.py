@@ -1,4 +1,5 @@
 from .redx_inicio import redx_inicio
-from .dashboard1 import dashboard1
+from .dashboard import dashboard
 from .about import about
 from .settings import settings
+from .protected import protected

@@ -1,6 +1,7 @@
 """Navbar component for the app."""
 
 from .. import styles
+from ..stylesRD.colors import Color
 
 import reflex as rx
 
@@ -80,13 +81,13 @@ def navbar_footer() -> rx.Component:
     return rx.hstack(
         rx.link(
             rx.text("Docs", size="3"),
-            href="https://reflex.dev/docs/getting-started/introduction/",
+            href="/",
             color_scheme="gray",
             underline="none",
         ),
         rx.link(
             rx.text("Blog", size="3"),
-            href="https://reflex.dev/blog/",
+            href="/",
             color_scheme="gray",
             underline="none",
         ),
@@ -175,21 +176,26 @@ def navbar() -> rx.Component:
     return rx.el.nav(
         rx.hstack(
             # The logo.
-            rx.color_mode_cond(
-                rx.image(src="/reflex_black.svg", height="1em"),
-                rx.image(src="/reflex_white.svg", height="1em"),
-            ),
+            
+            rx.image(src="/logoREDXWEB.png", height="2em",radius="large"),
+            rx.text("Tecnologia y Sistemas",
+                    height="3em",
+                    ),
             rx.spacer(),
             menu_button(),
             align="center",
             width="100%",
-            padding_y="1.25em",
+            padding_y="1.15em",
             padding_x=["1em", "1em", "2em"],
         ),
         display=["block", "block", "block", "block", "block", "none"],
-        position="sticky",
-        background_color=rx.color("gray", 1),
-        top="0px",
-        z_index="5",
+        #position="sticky",
+        position="fixed",
+         #display= "flex",
+        bg=Color.NAVBAR_FOOTER.value,
+        z_index="1000",
+        width="100%",
+        overflow="auto",  
+        #background_color=Color.NAVBAR.value,
         border_bottom=styles.border,
     )
