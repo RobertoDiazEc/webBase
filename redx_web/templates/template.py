@@ -10,12 +10,16 @@ from typing import Callable
 
 import reflex as rx
 
+preview = "/logoREDXWEB.png"
+
 # Meta tags for the app.
 default_meta = [
     {
         "name": "viewport",
         "content": "width=device-width, shrink-to-fit=no, initial-scale=1",
     },
+    {"name": "og:type", "content": "website"},
+    {"name": "og:imagen", "content": preview},
 ]
 
 

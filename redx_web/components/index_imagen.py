@@ -1,23 +1,24 @@
 import reflex as rx
-import ..styles.styles as styles
+
 
 def imageninfo( imginfo: str) -> rx.Component:
     if imginfo=="":
         return rx.box()
     else: 
-        return rx.box(
+        return rx.container(
         rx.center( 
             rx.image(
                 src=imginfo, 
-                width="70%", 
+                width="80%", 
                 height="auto",
                 #auto="format",
                 margin="10px",
-                border_radius="15px 50px",
-                border="2px solid #217F4F",
+                border_radius="15px 15px",
+                border="1px solid #217F4F",
                 ),
                
             ), 
+        size="1",
         padding= "10px 10px",
     )
 

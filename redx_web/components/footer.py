@@ -96,7 +96,7 @@ def footer() -> rx.Component:
                     
                     align_items="center",
                 ),
-                rx.text("© 2024",
+                rx.text("Copyright © 2024",
                             size="2",
                             weight="bold",
                             ),

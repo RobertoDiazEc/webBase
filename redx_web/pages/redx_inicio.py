@@ -2,6 +2,8 @@
 
 from ..templates import template
 from .. import styles
+from ..utilis import lang
+from ..views.empresa.serredx import serheaderedx, sersomosredx, serserviciosredx
 import reflex as rx
 import reflex_chakra as rc
 
@@ -13,25 +15,37 @@ def redx_inicio() -> rx.Component:
         The UI for the dashboard page.
     """
     return rx.box(
+            lang(),
             rx.vstack(
-                rx.fragment(
-                    #rc.color_mode_button(rc.color_mode_icon(), float="right"),
-                    rc.vstack(
-                        rc.heading("Welcome to my homepage!", font_size="2em"),
-                        rc.link("Protected Page", href="/protected"),
-                        spacing="1.5em",
-                        padding_top="10%",
+                serheaderedx("/imagenes/bienvenidos2.jpg"),
+                rx.divider(),
+                sersomosredx("/imagenes/programacion.png"),
+                rx.divider(),
+                rx.flex(
+                rx.hstack(
+                    serserviciosredx(
+                        "Desarrollo",
+                        "nos acoplamos a tu presupuesto",
+                        "/imagenes/programacion2.png",
+
+                    ),
+                    serserviciosredx(
+                        "Servicio Tecnico",
+                        "nos acoplamos a tu presupuesto",
+                        "/imagenes/programacion3.png",
+
+                    ),
+                    serserviciosredx(
+                        "Venta de Equipos",
+                        "nos acoplamos a tu presupuesto",
+                        "/imagenes/programacion4.png",
+
                     ),
                 ),
-                rc.heading("Quienes somos"),
-                rc.center("Ingeniria de Sistemas"),
-                rc.button(
-                    "click me",
-                    on_click=rx.toast("show toast!"),
-                    bg="purple",
-                    border_radius="0.5em",
-                    pl="10px"
-                ),
+                spacing="2",
+                align_items="flex-start",
+                flex_wrap="wrap"
+                ),    
                 spacing="4",
                 width="100%",
             ),

@@ -1,5 +1,5 @@
 import reflex as rx
-from ..styles.styles import Size as Size
+from ..stylesRD.stylespag import Size as Size
 
 
 def info_text(title:str, body:str) -> rx.Component:
