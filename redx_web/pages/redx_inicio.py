@@ -31,7 +31,7 @@ def redx_inicio() -> rx.Component:
                     ),
                     serserviciosredx(
                         "Servicio Tecnico",
-                        "nos acoplamos a tu presupuesto",
+                        "Mantenimiento de Equipos, Actualizacion, Reparacion",
                         "/imagenes/programacion3.png",
 
                     ),

@@ -5,5 +5,6 @@ config = rx.Config(
     api_url="https://api-redx-web.up.railway.app",
     cors_allowed_origins=[
         "http://localhost:3000"
+        "https://redeloped-web.vercel.app"
     ]
 )
