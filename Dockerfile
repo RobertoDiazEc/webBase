@@ -3,10 +3,10 @@ FROM python:3.12
 
 
 # Copy local context to `/app` inside container (see .dockerignore)
-WORKDIR /app
+WORKDIR /app3
 COPY . .
 
-ENV VIRTUAL_ENV=/app/.venv_docker
+ENV VIRTUAL_ENV=/app3/.venv_docker
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 RUN python3.12 -m venv $VIRTUAL_ENV 
