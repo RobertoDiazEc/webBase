@@ -50,15 +50,15 @@ class ThemeState(rx.State):
     scaling: str = "100%"
 
 
-def template(
+""" def template(
     route: str | None = None,
     title: str | None = None,
     description: str | None = None,
     meta: str | None = None,
     script_tags: list[rx.Component] | None = None,
     on_load: rx.EventHandler | list[rx.EventHandler] | None = None,
-    routeimagen: str | None = None
-) -> Callable[[Callable[[], rx.Component]], rx.Component]:
+    routeimagen: str | None = None """
+def template(routeimagen: str | None = None) -> Callable[[Callable[[], rx.Component]], rx.Component]:
     """The template for each page of the app.
 
     Args:
@@ -83,8 +83,17 @@ def template(
             The template with the page content.
         """
         # Get the meta tags for the page.
-        all_meta = [*default_meta, *(meta or [])]
+        #all_meta = [*default_meta, *(meta or [])]
 
+        """ @rx.page(
+            route=route,
+            title=title,
+            description=description,
+            meta=all_meta,
+            script_tags=script_tags,
+            on_load=on_load,
+           ) """
+        
         def templated_page():
             return rx.box(
                 navbar(),
@@ -108,6 +117,7 @@ def template(
                     ],
                 ),
                 footer(),
+                
                 flex_direction=[
                     "column",
                     "column",
@@ -121,14 +131,8 @@ def template(
                 position="relative",
             )
        
-        @rx.page(
-            route=route,
-            title=title,
-            description=description,
-            meta=all_meta,
-            script_tags=script_tags,
-            on_load=on_load,
-        )
+       
+           
         def theme_wrap():
             return rx.theme(
                 templated_page(),

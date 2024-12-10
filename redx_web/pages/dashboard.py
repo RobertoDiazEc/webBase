@@ -1,7 +1,7 @@
 """The dashboard page."""
 
 from ..templates import template
-from ..backend.table_state import TableState
+from ..backend.page_state import TableState
 from ..views.table import main_table
 
 import reflex as rx

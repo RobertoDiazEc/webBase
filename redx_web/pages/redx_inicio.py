@@ -5,11 +5,18 @@ from .. import styles
 
 from ..views.empresa.serredx import serheaderedx, sersomosredx
 from ..views.secciones.seccionredx import serviciosredx, productosredx
+from ..utilis import default_meta
 import reflex as rx
-import reflex_chakra as rc
+
+all_meta = [*default_meta, *[]]
 
 
-@template(route="/", title="REDx Soluciones",routeimagen="/imagenes/portadaRedx1.jpg")
+    
+   
+    
+
+@rx.page(route="/", title="REDx Soluciones", meta=all_meta)
+@template(routeimagen="/imagenes/portadaRedx1.jpg")
 def redx_inicio() -> rx.Component:
     """The dashboard page.
 
@@ -25,7 +32,7 @@ def redx_inicio() -> rx.Component:
                 rx.divider(),
                 serviciosredx(),
                 rx.divider(),
-                productosredx(),    
+                productosredx(),  
                 spacing="4",
                 width="100%",
             ),
