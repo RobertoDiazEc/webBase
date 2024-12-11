@@ -80,6 +80,7 @@ def sidebar_item(text: str, url: str) -> rx.Component:
                 ("Dashboard", sidebar_item_icon("layout-dashboard")),
                 ("About", sidebar_item_icon("book-open")),
                 ("Settings", sidebar_item_icon("settings")),
+                ("Usuarios", sidebar_item_icon("users-round")),
                 sidebar_item_icon("layout-dashboard"),
             ),
             rx.text(text, size="3", weight="regular"),
@@ -134,6 +135,7 @@ def sidebar() -> rx.Component:
         "/",
         "/about",
         "/settings",
+        "/usuariosweb"
     ]
     # Get the decorated pages.
     pages = get_decorated_pages()

@@ -31,3 +31,23 @@ class Supabase_API:
                               )
             
             return usuarios_data        
+
+    def Usuario_ApiInsert(self) -> list[ItemUsu]:
+
+            #response = self.supabase.table("WebUsuarios").select("*").execute()
+            response = (
+                        self.supabase.table("WebUsuarios")
+                        .insert({"nombre": "", "email": "", "claveusuario": ""})
+                        .execute()
+                        )
+
+            usuarios_data = []
+            if len(response.data) > 0:
+                for usuarios_item in response.data:
+                    usuarios_data.append(
+                         ItemUsu(nombre=usuarios_item["nombre"], 
+                                 email=usuarios_item["email"]
+                                 )
+                              )
+            
+            return usuarios_data        

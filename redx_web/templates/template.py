@@ -115,17 +115,14 @@ def template(routeimagen: str | None = None) -> Callable[[Callable[[], rx.Compon
                         "100%",
                         styles.max_width,
                     ],
+                    flex_wrap="wrap",
+                    justify="between",
+                    flex_direction=["column", "column", "row"],
+
                 ),
                 footer(),
                 
-                flex_direction=[
-                    "column",
-                    "column",
-                    "column",
-                    "column",
-                    "column",
-                    "row",
-                ],
+                
                 width="100%",
                 margin="auto",
                 position="relative",
