@@ -23,7 +23,7 @@ def usuariosweb() -> rx.Component:
                        ),
             usuarioswebapi(),
     
-            spacing="8",
+            spacing="4",
             width="100%",
         ),
         padding="15px 25px",
