@@ -1,11 +1,41 @@
+import time
 from ..templates import template
 from .. import styles
+from ..api.api import api_inicio_sesion
 import reflex as rx
-import reflex_chakra as rc
+
+
+class InicioSesionState(rx.State):
+    
+    form_data: dict = {}
+    enviado_data: bool = False
+    nombre_data: str = ""
+    nombre_get: str = ""
+    activo: bool = True
+    authenticated: bool = False
+    
+    @rx.event
+    async def iniciosesion_submit(self, form_data: dict):
+        """Handle the form submit."""
+        print(form_data)
+        self.form_data = form_data
+        self.enviado_data = True
+        self.nombre_get= form_data.get("email") or ""
+        self.activo= False
+        self.authenticated = await api_inicio_sesion(self.form_data)
+        
+        if self.authenticated:
+            yield
+            time.sleep(2)
+            self.enviado_data = False
+            rx.redirect("/")
+            
+        
+
 
 #@require_login
 
-@rx.page(route="/protected", title="REDx Soluciones")
+@rx.page(route="/protected", title="Inicio Sesion")
 @template(routeimagen="/imagenes/portadaRedx1.jpg")
 def protected() -> rx.Component:
     """Render a protected page.
@@ -20,21 +50,14 @@ def protected() -> rx.Component:
     rx.box(
         rx.flex(
             rx.box(
-                rx.image(
-                    src="/logoREDXWEB.png",
-                    alt="REDx Soluciones Informatica",
-                    height="2.5rem",
-                    margin_left="auto",
-                    margin_right="auto",
-                    width="auto",
-                ),
+                
                 rx.heading(
-                    "Inicia sesión en tu cuenta",
+                    "Inicia Sesión en REDx Soluciones",
                     class_name="text-2xl/9",
                     font_weight="700",
-                    margin_top="2.5rem",
+                    margin_top="1.5rem",
                     text_align="center",
-                    color="#111827",
+                    color=styles.accent_color,
                     letter_spacing="-0.025em",
                     as_="h2",
                     size="6",
@@ -48,7 +71,7 @@ def protected() -> rx.Component:
                 rx.form(
                     rx.box(
                         rx.el.label(
-                            "Email address",
+                            "Direccion Email",
                             class_name="text-sm/6",
                             display="block",
                             font_weight="500",
@@ -94,7 +117,7 @@ def protected() -> rx.Component:
                                     href="#",
                                     font_weight="600",
                                     _hover={"color": "#6366F1"},
-                                    color="#4F46E5",
+                                    color="#ffffff",
                                 ),
                                 font_size="0.875rem",
                                 line_height="1.25rem",
@@ -130,7 +153,7 @@ def protected() -> rx.Component:
                     ),
                     rx.box(
                         rx.el.button(
-                            "Sign in",
+                            "Ingresar",
                             type="submit",
                             class_name="focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600 focus-visible:outline-offset-2 text-sm/6",
                             background_color="#4F46E5",
@@ -153,21 +176,10 @@ def protected() -> rx.Component:
                     display="flex",
                     flex_direction="column",
                     gap="1.5rem",
+                    on_submit=InicioSesionState.iniciosesion_submit,
+                    reset_on_submit=True,
                 ),
-                rx.text(
-                    " Not a member? ",
-                    rx.el.a(
-                        "Start a 14 day free trial",
-                        href="#",
-                        font_weight="600",
-                        _hover={"color": "#6366F1"},
-                        color="#4F46E5",
-                    ),
-                    class_name="text-sm/6",
-                    margin_top="2.5rem",
-                    text_align="center",
-                    color="#6B7280",
-                ),
+               
                 margin_top="2.5rem",
                 max_width=rx.breakpoints({"640px": "24rem"}),
                 margin_left=rx.breakpoints({"640px": "auto"}),
@@ -183,15 +195,21 @@ def protected() -> rx.Component:
             padding_top="3rem",
             padding_bottom="3rem",
         ),
+        rx.divider(),
+        rx.cond(InicioSesionState.authenticated, 
+            f"Iniciando Sesion Autorizada",
+            "Inicio NO Autorizado"),
     ),
+
     position="absolute", 
-            top= "15%", 
-            left= "50%", 
-            transform= "translate(-50%, -50%)", 
-            color= "white", 
-            font_size= "24px", 
-            font_weight= "bold", 
-            background_color= "rgba(0, 0, 0, 1.5)", 
-            padding="10px", 
-            border_radius= "5px" ,  
+    top= "20%", 
+    left= "50%", 
+    transform= "translate(-50%, -50%)", 
+    color= "white", 
+    font_size= "24px", 
+    font_weight= "bold", 
+    background_color= "rgba(0, 0, 0, 1.5)", 
+    padding="10px", 
+    border_radius= "5px" ,  
+    bg="#3f6370",
 )

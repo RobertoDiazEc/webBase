@@ -42,9 +42,9 @@ def footer_items_3() -> rx.Component:
             "CONTACTOS", 
             style=title_style
         ),
-        footer_item("Email: contacto@redxsolucion.com", "/#"),
-        footer_item("Mobil: +593 985713144", "/#"),
-        footer_item("QUITO - ECUADOR", "/#"),
+        footer_item("Email: contacto@redxsolucion.com", "/contactos"),
+        footer_item("Celular: +593 985713144", "/contactos"),
+        footer_item("QUITO - ECUADOR", "/contactos"),
        
         #footer_item("E-commerce", "/#"),
         spacing="2",

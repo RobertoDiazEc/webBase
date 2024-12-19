@@ -34,7 +34,7 @@ def sidebar_footer() -> rx.Component:
     """
     return rx.hstack(
         rx.link(
-            rx.text("Docs", size="3"),
+            rx.text("Registrate", size="3"),
             href="/",
             color_scheme="gray",
             underline="none",
@@ -101,7 +101,7 @@ def sidebar_item(text: str, url: str) -> rx.Component:
                         styles.accent_text_color,
                         styles.text_color,
                     ),
-                    "opacity": "1",
+                    "opacity": "10",
                 },
                 "opacity": rx.cond(
                     active,
