@@ -58,7 +58,7 @@ class Supabase_API:
             inwithOAuth={
                 "provider": 'google'
             }
-            response = self.supabase.auth.sign_in_with_oauth(inwithOAuth) 
+            response = self.supabase.auth.sign_in_with_password(usuarioQuerry) 
             print(response)
             if len(response.user.id) > 0:
                 return True
@@ -69,3 +69,4 @@ class Supabase_API:
    #         signInWithOAuth({
   #             provider: 'google'})
   #sign_in_with_password(usuarioQuerry) 
+  #sign_in_with_oauth(inwithOAuth) 
