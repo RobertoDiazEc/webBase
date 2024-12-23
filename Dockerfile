@@ -15,6 +15,12 @@ RUN python3.12 -m venv $VIRTUAL_ENV
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
+# RUN adduser --disabled-password --home /app3 reflex
+# COPY --chown=reflex --from=init /app /app3
+# # Install libpq-dev for psycopg2 (skip if not using postgres).
+# RUN apt-get update -y && apt-get install -y libpq-dev && rm -rf /var/lib/apt/lists/*
+# USER reflex
+# ENV PATH="/app3/.venv/bin:$PATH"
 
 
 # Needed until Reflex properly passes SIGTERM on backend.
@@ -23,4 +29,8 @@ STOPSIGNAL SIGKILL
 # Always apply migrations before starting the backend.
 #CMD [ -d alembic ] && reflex db migrate; \
 #   exec reflex run --env prod --backend-only
-ENTRYPOINT ["reflex", "run", "--env", "prod", "--backend-only", "--loglevel", "debug" ]    
+#ENTRYPOINT ["reflex", "run", "--env", "prod", "--backend-only", "--loglevel", "debug" ]    
+
+
+# Always apply migrations before starting the backend.
+CMD exec reflex run --env prod --backend-only
