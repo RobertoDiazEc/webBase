@@ -2,7 +2,7 @@ import reflex as rx
 
 import reflex_chakra as rc
 
-
+from ...ui.routes import Route
 from ...components.index_imagen import imageninfo
 
 
@@ -20,7 +20,13 @@ def serheaderedx(imginfo: str) -> rx.Component:
                                     rc.center("Desarrollo de Software a Medida"), 
                                     rc.center("Soporte Técnico 24/7"), 
                                     rc.center("Consultoría en TI"),
-                                    rc.link("Registrate", href="/protected"),
+                                    
+                                    rc.link(
+                                        rx.hstack(
+                                        rx.icon("user-round-check", stroke_width=2),
+                                        "Registrate", ),
+                                        href=Route.REGISTRATE.value
+                                    ),   
                                     spacing="1em",
                                     padding="5%",
                                 ),

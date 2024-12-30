@@ -21,6 +21,7 @@ class Supabase_API:
 
     def Usuario_ApiBase(self) -> list[ItemUsu]:
         response = self.supabase.table("ContactosWeb").select("*").execute()
+        #print(response)
         usuarios_data = []
         if len(response.data) > 0:
             for usuarios_item in response.data:
@@ -28,6 +29,7 @@ class Supabase_API:
                     ItemUsu(nombre = usuarios_item["nombre"], 
                             apellido = usuarios_item["apellido"],
                             email = usuarios_item["email"],
+                            celular = usuarios_item["celular"],
                             mensaje = usuarios_item["mensaje"]
                         )
                     )
@@ -45,7 +47,7 @@ class Supabase_API:
                     "celular": form_data.get("celular"),
                     "mensaje": form_data.get("mensaje") }
         response = self.supabase.table("ContactosWeb").insert(querryinsert).execute()
-        #print(response)         
+        print(response)         
         return " enviado form_data"
             #if response > 200:
                 
@@ -70,3 +72,4 @@ class Supabase_API:
   #             provider: 'google'})
   #sign_in_with_password(usuarioQuerry) 
   #sign_in_with_oauth(inwithOAuth) 
+  

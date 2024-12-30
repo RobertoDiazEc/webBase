@@ -6,7 +6,7 @@ class ItemUsu(rx.Base):
     nombre: str
     apellido: str 
     email: str
-    celular: int
+    celular: str
     mensaje: str
    
 

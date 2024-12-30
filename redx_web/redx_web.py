@@ -12,4 +12,3 @@ app = rx.App(
     stylesheets=styles.STYLESHEETS,
 )
 
-#app.api.add_api_route("/repo", repo)

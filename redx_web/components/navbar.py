@@ -2,6 +2,7 @@
 
 from .. import styles
 from ..stylesRD.colors import Color
+from ..ui.routes import Route
 
 import reflex as rx
 
@@ -22,7 +23,7 @@ def menu_item(text: str, url: str) -> rx.Component:
     """
     # Whether the item is active.
     active = (rx.State.router.page.path == url.lower()) | (
-        (rx.State.router.page.path == "/") & text == "Overview"
+        (rx.State.router.page.path == Route.INDEX.value) & text == "Overview"
     )
 
     return rx.link(
@@ -176,13 +177,35 @@ def navbar() -> rx.Component:
     return rx.el.nav(
         rx.hstack(
             # The logo.
-            
-            rx.image(src="/logoREDXWEB.png", height="2em",radius="large"),
-            rx.text("Tecnologia y Sistemas",
-                    height="3em",
-                    ),
+            rx.link(
+                rx.hstack(
+                rx.image(src="/logoREDXWEB.png", height="2em",radius="large"),
+                rx.text("Soluciones Innovadoras",
+                        height="2em",
+                        ),
+                ),
+                size="3",
+                href=Route.INDEX.value,
+            ),            
             rx.spacer(),
-            menu_button(),
+            rx.link(
+                    rx.hstack(
+                    rx.icon("user-round-check", stroke_width=2),
+                    rx.text("Registrate"),
+                    ),
+                    size="3",
+                    href=Route.REGISTRATE.value,
+            ), 
+             rx.link(
+                    rx.hstack(
+                    rx.icon("phone-call", stroke_width=2),
+                    rx.text("Contactanos"),
+                    ),
+                    size="3",
+                    href=Route.CONTACTOS.value,
+            ),   
+                     
+            #menu_button(),
             align="center",
             width="100%",
             padding_y="1.15em",

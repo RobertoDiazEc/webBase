@@ -16,7 +16,7 @@ def serviciosredx() -> rx.Component:
                         
                         serserviciosredx(
                             "Desarrollo Web",
-                            "nos acoplamos a tu presupuesto",
+                            "Pagina Web desde $ 100, visualiza tu emprendimiento",
                             "/imagenes/programacion4.png",
 
                         ),
