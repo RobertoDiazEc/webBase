@@ -63,12 +63,12 @@ def sersomosredx(imginfo: str) -> rx.Component:
         ),
 
 
-def serserviciosredx(titulo: str, detalle: str, imginfo: str) -> rx.Component:
+def serserviciosredx(titulo: str, detalle: str, imginfo: str, colorsi: bool) -> rx.Component:
     return rx.fragment(
                     #rc.color_mode_button(rc.color_mode_icon(), float="right"),
              
             rx.card(
-                rx.link(
+                    rx.link(
                     rx.hstack(
                         
                         rc.vstack(
@@ -82,9 +82,42 @@ def serserviciosredx(titulo: str, detalle: str, imginfo: str) -> rx.Component:
                         width="100%",
                     ),
                 ),
-                size="1",
+                size="3",
+                background_color= rx.cond(
+                    colorsi,            
+                    "#f4ea43", 
+                    "#246c85",
+                    ),
+                width="100%"    
             ),
            
-      
-        
-    ),
+
+     )
+
+def serautomatizacionredx(titulo: str, detalle: str, icoinfo: str, colorsi: bool) -> rx.Component:
+    return rx.fragment(
+                    #rc.color_mode_button(rc.color_mode_icon(), float="right"),
+             
+            rx.card(
+                    
+                rx.hstack(
+                    rx.icon(icoinfo,size=125),
+                    rc.vstack(
+                        rc.heading(titulo),
+                        rc.center(detalle),
+                        
+                        spacing="1em",
+                        padding="5%", 
+                    ),                    
+                ),
+                size="3",
+                background_color= rx.cond(
+                    colorsi,            
+                    "#096df9", 
+                    "#246c85",
+                    ),
+                width="100%"    
+            ),
+           
+
+     )

@@ -32,7 +32,7 @@ jobs:
             pip install -r requirements.txt
             pip install reflex-chakra
             reflex init
-            API_URL=https://api-redx-web.up.railway.app reflex export --frontend-only
+            API_URL=https://api-redxsoluciones.koyeb.app reflex export --frontend-only
             rm -rf public
             unzip frontend.zip -d public
             rm -f  frontend.zip

@@ -42,7 +42,7 @@ def seccion_box(imagen_fondo: str, iconocab: str, titulo: str, subtitulo: str, d
                     padding="15px 15px", 
                     border_radius= "15px" , 
                     width="80%",
-                    ), 
+                ), 
              padding="1em",
             position= "relative",
             width="100%",

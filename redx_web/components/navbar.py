@@ -175,42 +175,85 @@ def navbar() -> rx.Component:
     """
 
     return rx.el.nav(
-        rx.hstack(
-            # The logo.
-            rx.link(
-                rx.hstack(
-                rx.image(src="/logoREDXWEB.png", height="2em",radius="large"),
-                rx.text("Soluciones Innovadoras",
-                        height="2em",
+        rx.desktop_only(
+            rx.hstack(
+                # The logo.
+                rx.link(
+                    rx.hstack(
+                    rx.image(src="/logoREDXWEB.png", height="2em",radius="large"),
+                    rx.text("RED{x}Soluciones",
+                            height="2em",
+                            ),
+                    ),
+                    size="3",
+                    href=Route.INDEX.value,
+                ),            
+                rx.spacer(),
+                rx.link(
+                        rx.hstack(
+                        rx.icon("user-round-check", stroke_width=2),
+                        rx.text("Registrate"),
                         ),
+                        size="2",
+                        href=Route.REGISTRATE.value,
+                ), 
+                rx.link(
+                        rx.hstack(
+                        rx.icon("phone-call", stroke_width=2),
+                        rx.text("Contactanos"),
+                        ),
+                        size="2",
+                        href=Route.CONTACTOS.value,
+                ), 
+            
+                #menu_button(),
+                align="center",
+                width="100%",
+                padding_y="1.15em",
+                padding_x=["1em", "1em", "1em"],
+            ),
+        ),  
+            
+        rx.mobile_and_tablet(
+                rx.hstack(
+                    rx.hstack(
+                        rx.link(
+                            rx.hstack(
+                            rx.image(src="/logoREDXWEB.png", height="2em",radius="large"),
+                            rx.text("RED{x}Soluciones",
+                                    height="2em",
+                                    ),
+                            ),
+                            size="3",
+                            href=Route.INDEX.value,
+                        ), 
+                        align_items="center",
+                    ),
+                    rx.menu.root(
+                        rx.menu.trigger(
+                            rx.icon_button(
+                                rx.icon("align-justify"),
+                                size="2",
+                                
+                            )
+                        ),
+                        rx.menu.content(
+                            rx.menu.item("Registrate"),
+                            rx.menu.item(rx.link(
+                                rx.text("Contactanos"),
+                                size="2",
+                                href=Route.CONTACTOS.value,
+                                ),
+                            ),
+                            #rx.menu.separator(),
+                            #rx.menu.item("Log out"),
+                        ),
+                        justify="end",
+                    ),
+                    justify="between",
+                    align_items="center",
                 ),
-                size="3",
-                href=Route.INDEX.value,
-            ),            
-            rx.spacer(),
-            rx.link(
-                    rx.hstack(
-                    rx.icon("user-round-check", stroke_width=2),
-                    rx.text("Registrate"),
-                    ),
-                    size="3",
-                    href=Route.REGISTRATE.value,
-            ), 
-             rx.link(
-                    rx.hstack(
-                    rx.icon("phone-call", stroke_width=2),
-                    rx.text("Contactanos"),
-                    ),
-                    size="3",
-                    href=Route.CONTACTOS.value,
-            ),   
-                     
-            #menu_button(),
-            align="center",
-            width="100%",
-            padding_y="1.15em",
-            padding_x=["1em", "1em", "2em"],
-        ),
+        ),         
         display=["block", "block", "block", "block", "block", "none"],
         #position="sticky",
         position="fixed",

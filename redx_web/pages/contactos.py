@@ -1,7 +1,8 @@
 """The dashboard page."""
 import time 
 from ..templates import template
-
+from ..styles import button_title_style
+from ..constants import WHATSAPP_URL
 from ..api.api import api_contactos_crear
 import reflex as rx
 
@@ -44,6 +45,8 @@ def contactos() -> rx.Component:
         The UI for the dashboard page.
     """
     return rx.container(
+        rx.flex(
+                
             rx.vstack(
                 rx.heading("CONTACTANOS", 
                     size="8",
@@ -98,10 +101,39 @@ def contactos() -> rx.Component:
                 rx.cond(contactosState.enviado_data, 
                         f"Gracias por escribirnos {contactosState.nombre_get}",
                         ""),
-        
+
             spacing="4",
-            width="50%",
+            width="100%",
             padding="25px 25px",
+            ),
+            rx.flex(
+                rx.heading(
+                    "Whatsapp",
+                    size="8",
+                    padding_top="25%"
+                ),
+                rx.link(
+                    rx.button(
+                        rx.hstack(
+                            rx.icon(
+                                tag="message-circle-more",
+                            ),
+                            rx.text("Escribenos", style=button_title_style)
+                        ),
+                        color_scheme="green",
+                    ),
+                    href=WHATSAPP_URL,
+                    is_external=True,
+                    width="100%",
+                ),
+                spacing="2",
+                text_align=["center", "center", "start"],
+                flex_direction="column",
+            ),
+            justify="between",
+            spacing="6",
+            flex_direction=["column", "column", "row"],
+            width="100%",
         ),
         padding="25px 25px",
         width="100%",
