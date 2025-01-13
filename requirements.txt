@@ -2,3 +2,4 @@ reflex>=0.6.5
 reflex-chakra
 python-dotenv
 supabase
+#psycopg2-binary

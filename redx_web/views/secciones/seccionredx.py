@@ -79,8 +79,8 @@ def automatizacionredx() -> rx.Component:
                                width="100%"),
                   
                     serautomatizacionredx(
-                            "Lectura de Facturas PDFs",
-                            "Proceso para leer las FACTURAS PDF y transformarlos en datos para su registro",
+                            "Convertir Facturas PDFs a datos para tu Base de Datos",
+                            "Proceso para leer las FACTURAS PDF y transformarlos en datos para su registro, en un Excel o base de datos",
                             "building-2",
                             False,
                         ),

@@ -41,15 +41,18 @@ class Supabase_API:
     
     def Usuario_ApiInsert(self, form_data: dict) -> str:
         #response = self.supabase.table("WebUsuarios").select("*").execute()
-        querryinsert={"nombre": form_data.get("nombre"),
-                    "apellido": form_data.get("apellido"), 
-                    "email": form_data.get("email"), 
-                    "celular": form_data.get("celular"),
-                    "mensaje": form_data.get("mensaje") }
-        response = self.supabase.table("ContactosWeb").insert(querryinsert).execute()
-        print(response)         
-        return " enviado form_data"
-            #if response > 200:
+        try:
+            querryinsert={"nombre": form_data.get("nombre"),
+                        "apellido": form_data.get("apellido"), 
+                        "email": form_data.get("email"), 
+                        "celular": form_data.get("celular"),
+                        "mensaje": form_data.get("mensaje") }
+            response = self.supabase.table("ContactosWeb").insert(querryinsert).execute()
+            #print(response)         
+            return " enviado form_data"
+                #if response > 200:
+        except Exception as e:       
+            return print(e)
                 
     def IngresoSesion(self, form_data: dict) -> bool:
         try: 
