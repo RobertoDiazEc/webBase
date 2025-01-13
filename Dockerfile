@@ -29,8 +29,8 @@ STOPSIGNAL SIGKILL
 # Always apply migrations before starting the backend.
 #CMD [ -d alembic ] && reflex db migrate; \
 #   exec reflex run --env prod --backend-only
-#ENTRYPOINT ["reflex", "run", "--env", "prod", "--backend-only", "--loglevel", "debug" ]    
+ENTRYPOINT ["reflex", "run", "--env", "prod", "--backend-only", "--loglevel", "debug" ]    
 
 
 # Always apply migrations before starting the backend.
-CMD exec reflex run --env prod --backend-only
+#CMD exec reflex run --env prod --backend-only

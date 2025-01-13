@@ -7,7 +7,7 @@ from ..model.userweb import ItemUsu
 
 
 
-class Supabase_API:
+class Clase_Supabase_API:
         
     dotenv.load_dotenv()
     SUPABASE_URL: str = os.environ.get("SUPABASE_URL")
@@ -52,7 +52,7 @@ class Supabase_API:
             return " enviado form_data"
                 #if response > 200:
         except Exception as e:       
-            return print(e)
+            return f"error {e}"
                 
     def IngresoSesion(self, form_data: dict) -> bool:
         try: 
