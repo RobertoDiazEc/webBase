@@ -27,10 +27,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 STOPSIGNAL SIGKILL
 
 # Always apply migrations before starting the backend.
-#CMD [ -d alembic ] && reflex db migrate; \
+# CMD [ -d alembic ] && reflex db migrate; \
 #   exec reflex run --env prod --backend-only
 ENTRYPOINT ["reflex", "run", "--env", "prod", "--backend-only", "--loglevel", "debug" ]    
 
+# RUN reflex export --backend-only --no-zip
 
 # Always apply migrations before starting the backend.
 #CMD exec reflex run --env prod --backend-only
