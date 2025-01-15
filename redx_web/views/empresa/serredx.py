@@ -24,8 +24,8 @@ def serheaderedx(imginfo: str) -> rx.Component:
                                     rc.link(
                                         rx.hstack(
                                         rx.icon("user-round-check", stroke_width=2),
-                                        "Registrate", ),
-                                        href=Route.REGISTRATE.value
+                                        "Contactanos", ),
+                                        href=Route.CONTACTOS.value,
                                     ),   
                                     spacing="1em",
                                     padding="5%",

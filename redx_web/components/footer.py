@@ -3,6 +3,7 @@ import reflex as rx
 from ..stylesRD.fonts import FontSize
 from ..styles import title_style
 from ..stylesRD.colors import Color
+from ..ui.routes import Route
 
 def footer_item(text: str, href: str) -> rx.Component:
     return rx.link(rx.text(text, size="2", font_size= FontSize.FOOTER.value), href=href)
@@ -42,9 +43,9 @@ def footer_items_3() -> rx.Component:
             "CONTACTOS", 
             style=title_style
         ),
-        footer_item("Email: contacto@redxsolucion.com", "/contactos"),
-        footer_item("Celular: +593 985713144", "/contactos"),
-        footer_item("QUITO - ECUADOR", "/contactos"),
+        footer_item("Email: contacto@redxsolucion.com", Route.CONTACTOS.value),
+        footer_item("Celular: +593 985713144", Route.CONTACTOS.value),
+        footer_item("QUITO - ECUADOR", Route.CONTACTOS.value),
        
         #footer_item("E-commerce", "/#"),
         spacing="2",

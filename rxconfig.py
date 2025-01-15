@@ -8,5 +8,6 @@ config = rx.Config(
          "http://localhost:3000",
          "https://redeveloped-web.vercel.app",
          "https://redeveloped-web.vercel.app:3000"
+         "https://redeveloped-web-roberto-diaz-chs-projects.vercel.app"
      ],
 )

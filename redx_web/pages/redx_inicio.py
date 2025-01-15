@@ -5,6 +5,7 @@ from .. import styles
 
 from ..views.empresa.serredx import serheaderedx, sersomosredx
 from ..views.secciones.seccionredx import serviciosredx, productosredx, automatizacionredx
+from ..views.charts import chart
 from ..utilis import default_meta
 from ..ui.routes import Route, RouteImagen
 import reflex as rx
@@ -34,6 +35,8 @@ def redx_inicio() -> rx.Component:
                 serviciosredx(),
                 rx.divider(),
                 automatizacionredx(),
+                rx.divider(),
+                chart(),
                 rx.divider(),
                 productosredx(),  
                 spacing="4",
