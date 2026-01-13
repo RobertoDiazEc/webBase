@@ -9,7 +9,8 @@ def serviciosredx() -> rx.Component:
                     rx.heading("SERVICIOS", 
                                size="6",
                                align="center",
-                               width="100%"),
+                               width="100%",
+                               color="#f8f5f5ff"),
                     rx.flex(
                         serserviciosredx(
                             "Desarrollo Aplicaciones",
@@ -76,7 +77,8 @@ def automatizacionredx() -> rx.Component:
                     rx.heading("AUTOMATIZACION", 
                                size="6",
                                align="center",
-                               width="100%"),
+                               width="100%",
+                               color="#f8f5f5ff"),
                   
                     serautomatizacionredx(
                             "Convertir Facturas PDFs a datos para tu Base de Datos",

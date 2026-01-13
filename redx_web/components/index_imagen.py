@@ -14,11 +14,12 @@ def imageninfo( imginfo: str) -> rx.Component:
                 #auto="format",
                 margin="10px",
                 border_radius="15px 15px",
-                border="1px solid #217F4F",
+                border="1px solid #217F4F",                
                 ),
                
             ), 
         size="1",
         padding= "10px 10px",
+        margin="10px 10px",
     )
 

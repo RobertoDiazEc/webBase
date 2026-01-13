@@ -1,14 +1,14 @@
 
-
-from ..templates import template
-from .. import styles
-
-from ..views.empresa.serredx import serheaderedx, sersomosredx
-from ..views.secciones.seccionredx import serviciosredx, productosredx, automatizacionredx
-from ..views.charts import chart
-from ..utilis import default_meta
-from ..ui.routes import Route, RouteImagen
 import reflex as rx
+from redx_web.templates import template
+from redx_web.styles import BASE_STYLE, STYLESHEETS
+
+from redx_web.views.empresa.serredx import serheaderedx, sersomosredx
+from redx_web.views.secciones.seccionredx import serviciosredx, productosredx, automatizacionredx
+from redx_web.views.charts import chart
+from redx_web.utilis import default_meta
+from redx_web.ui.routes import Route, RouteImagen
+
 
 all_meta = [*default_meta, *[]]
 

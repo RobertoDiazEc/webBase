@@ -183,20 +183,21 @@ def navbar() -> rx.Component:
                     rx.image(src="/logoREDXWEB.png", height="2em",radius="large"),
                     rx.text("RED{x}Soluciones",
                             height="2em",
+                            color="#f8f5f5ff"
                             ),
                     ),
                     size="3",
                     href=Route.INDEX.value,
                 ),            
                 rx.spacer(),
-                rx.link(
-                        rx.hstack(
-                        rx.icon("user-round-check", stroke_width=2),
-                        rx.text("Registrate"),
-                        ),
-                        size="2",
-                        href=Route.REGISTRATE.value,
-                ), 
+                # rx.link(
+                #         rx.hstack(
+                #         rx.icon("user-round-check", stroke_width=2),
+                #         rx.text("Registrate"),
+                #         ),
+                #         size="2",
+                #         href=Route.REGISTRATE.value,
+                # ), 
                 rx.link(
                         rx.hstack(
                         rx.icon("phone-call", stroke_width=2),
@@ -204,6 +205,7 @@ def navbar() -> rx.Component:
                         ),
                         size="2",
                         href=Route.CONTACTOS.value,
+                        color="#f8f5f5ff"
                 ), 
             
                 #menu_button(),
@@ -222,6 +224,7 @@ def navbar() -> rx.Component:
                             rx.image(src="/logoREDXWEB.png", height="2em",radius="large"),
                             rx.text("RED{x}Soluciones",
                                     height="2em",
+                                    color="#f8f5f5ff",
                                     ),
                             ),
                             size="3",
@@ -238,11 +241,12 @@ def navbar() -> rx.Component:
                             )
                         ),
                         rx.menu.content(
-                            rx.menu.item("Registrate"),
+    
                             rx.menu.item(rx.link(
                                 rx.text("Contactanos"),
                                 size="2",
                                 href=Route.CONTACTOS.value,
+                                color="#f8f5f5ff",
                                 ),
                             ),
                             #rx.menu.separator(),

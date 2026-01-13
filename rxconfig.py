@@ -6,8 +6,9 @@ config = rx.Config(
     api_url="https://api-redxsoluciones.koyeb.app:8000",
     cors_allowed_origins = [
          "http://localhost:3000",
-         "https://redeveloped-web.vercel.app",
-         "https://redeveloped-web.vercel.app:3000"
-         "https://redeveloped-web-roberto-diaz-chs-projects.vercel.app"
+         "https://redxsoluciones.vercel.app",
+         "https://redxsoluciones.vercel.app:3000"
+         "https://redxsoluciones-roberto-diaz-chs-projects.vercel.app"
      ],
+    disable_plugins= ['reflex.plugins.sitemap.SitemapPlugin'] 
 )

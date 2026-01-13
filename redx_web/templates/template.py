@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 from .. import styles
-from ..components.sidebar import sidebar
-from ..components.navbar import navbar
-from ..components.footer import footer
+from redx_web.components.sidebar import sidebar
+from redx_web.components.navbar import navbar
+from redx_web.components.footer import footer
 from typing import Callable
 
 import reflex as rx
@@ -59,20 +59,7 @@ class ThemeState(rx.State):
     on_load: rx.EventHandler | list[rx.EventHandler] | None = None,
     routeimagen: str | None = None """
 def template(routeimagen: str | None = None) -> Callable[[Callable[[], rx.Component]], rx.Component]:
-    """The template for each page of the app.
-
-    Args:
-        route: The route to reach the page.
-        title: The title of the page.
-        description: The description of the page.
-        meta: Additionnal meta to add to the page.
-        on_load: The event handler(s) called when the page load.
-        script_tags: Scripts to attach to the page.
-
-    Returns:
-        The template with the page content.
-    """
-
+    """The template decorator for the app pages."""
     def decorator(page_content: Callable[[], rx.Component]) -> rx.Component:
         """The template for each page of the app.
 
@@ -97,8 +84,13 @@ def template(routeimagen: str | None = None) -> Callable[[Callable[[], rx.Compon
         def templated_page():
             return rx.box(
                 navbar(),
-                sidebar(),
-                rx.image(src=routeimagen, width="100%"),
+                rx.divider(),
+                rx.box(
+                    rx.image(src=routeimagen, width="100%"),
+                    width="100%",
+                    width_max=["100%", "100%", "100%", "100%", "100%", styles.max_width],
+                    margin="auto",
+                ),
                 rx.flex(
                     rx.vstack(
                         page_content(),
