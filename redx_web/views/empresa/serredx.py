@@ -14,18 +14,18 @@ def serheaderedx(imginfo: str) -> rx.Component:
                         rx.flex(
 
                             rx.vstack(
-                                    rx.heading("TE DAMOS LA BIENVENIDA!", font_size=["1em", "2em", "3em"],
+                                    rx.heading("Transformamos ideas en impacto", font_size=["1em", "2em", "3em"],
                                                 color="#0A0A0AFF",
                                                 padding_bottom="2%"
                                                 ),
                                     rx.divider(border_color="white"),                                                
-                                    rx.center("REDx Soluciones es el aliado perfecto que estabas buscando en el desarrollo y soporte tecnológico. Brindamos Soluciones en tiempos reales, mejoramos procesos, reducimos costos.", 
+                                    rx.center("No se trata solo de lo que hacemos, sino de cómo lo cambia todo. Explora la diferencia que una solución tecnológica bien diseñada puede hacer para tu negocio.", 
                                               color="#0A0A0AF0"
                                               ),
-                                    rx.center("Desarrollo de Software a Medida",
+                                    rx.center("Tu próximo paso comienza aquí. Descubre qué es posible cuando la tecnología encuentra el propósito.",
                                         color="#0A0A0AF0"), 
-                                    rx.center("Soporte Técnico 24/7", color="#0A0A0AF0"), 
-                                    rx.center("Consultoría en TI", color="#0A0A0AF0"    ),
+                                    rx.center("Diseñamos, construimos y mantenemos la tecnología que tu negocio necesita para seguir creciendo.", color="#0A0A0AF0"), 
+                                    rx.center("Acompañamos cada etapa de tu negocio con tecnología estable, escalable y pensada para ti.", color="#0A0A0AF0"    ),
 
                                     rx.link(
                                         rx.hstack(

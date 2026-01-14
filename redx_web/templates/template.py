@@ -85,12 +85,27 @@ def template(routeimagen: str | None = None) -> Callable[[Callable[[], rx.Compon
             return rx.box(
                 navbar(),
                 rx.divider(),
-                rx.box(
-                    rx.image(src=routeimagen, width="100%"),
-                    width="100%",
-                    width_max=["100%", "100%", "100%", "100%", "100%", styles.max_width],
-                    margin="auto",
-                ),
+                # rx.box(
+                #     rx.image(src=routeimagen, width="100%"),
+                #     width="100%",
+                #     width_max=["100%", "100%", "100%", "100%", "100%", styles.max_width],
+                #     margin="auto",
+                # ),
+                # rx.vstack(
+                #     rx.script(src="https://prod.spline.design/js/runtime.js"),
+                #     rx.html(
+                #         """
+                #         <div style='width: 100%; height: 600px;'>
+                #             <iframe 
+                #                 src='https://my.spline.design/untitled-abc123xyz' 
+                #                 width='100%' 
+                #                 height='100%'
+                #                 frameborder='0'
+                #             ></iframe>
+                #         </div>
+                #         """
+                #     )
+                # ),
                 rx.flex(
                     rx.vstack(
                         page_content(),

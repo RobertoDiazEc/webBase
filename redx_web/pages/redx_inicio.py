@@ -8,6 +8,7 @@ from redx_web.views.secciones.seccionredx import serviciosredx, productosredx, a
 from redx_web.views.charts import chart
 from redx_web.utilis import default_meta
 from redx_web.ui.routes import Route, RouteImagen
+from redx_web.components.promo_redx import inicio_section, inicio_section2
 
 
 all_meta = [*default_meta, *[]]
@@ -26,8 +27,11 @@ def redx_inicio() -> rx.Component:
         The UI for the dashboard page.
     """
     return rx.box(
-          
+            inicio_section(),
+            rx.divider(),
+            inicio_section2(),
             rx.vstack(
+                
                 serheaderedx(RouteImagen.BIENVENIDO.value),
                 rx.divider(),
                 sersomosredx(RouteImagen.SOMOSREDX.value),
