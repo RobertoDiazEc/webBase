@@ -29,26 +29,21 @@ def RntireTitle(titulo1: str, titulo2: str, detalle: str, detalle2: str) -> rx.C
 
 def RntireButtons() -> rx.Component:
     return rx.el.div(
-        rx.flex(
-        rx.button("Consultar los precios", 
+       
+        rx.el.button("Consultar los precios", 
                     on_click=rx.redirect(Route.CONTACTOS.value),
-                    padding_top="2%",
-                    justify_content="center",
-                    color_scheme="grass",
-                    width="auto",
-                    padding="1.5rem 3rem",
+                    class_name=BUTTON_PRIMARY
                     ),
-        rx.button("Ponerse en contacto con ventas", 
-                    on_click=rx.redirect(Route.CONTACTOS.value),
-                    padding_top="2%",
-                    justify_content="center",
-                    color_scheme="grass",
-                    width="auto",
-                    padding="1.5rem 3rem",
-                    high_contrast= False
-                    ),
-            spacing="4",
-        ),
+        # rx.button("Ponerse en contacto con ventas", 
+        #             on_click=rx.redirect(Route.CONTACTOS.value),
+        #             padding_top="2%",
+        #             justify_content="center",
+        #             color_scheme="grass",
+        #             width="auto",
+        #             padding="1.5rem 3rem",
+        #             high_contrast= False
+        #             ),
+       
         class_name="mt-10 flex flex-col sm:flex-row gap-4",
     )
 

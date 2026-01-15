@@ -10,7 +10,7 @@ config = rx.Config(
     cors_allowed_origins = [
          "http://localhost:3000",
          "https://redxsoluciones.vercel.app",
-         "https://redxsoluciones.vercel.app:3000"
+         "https://redxsoluciones.vercel.app:3000",
          "https://redxsoluciones-roberto-diaz-chs-projects.vercel.app"
      ],
     disable_plugins= ['reflex.plugins.sitemap.SitemapPlugin'] 
