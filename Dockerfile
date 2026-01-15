@@ -27,11 +27,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 STOPSIGNAL SIGKILL
 # Expose the port Reflex backend listens on.
 EXPOSE 8000
-
+ENV PORT=8000
 # Always apply migrations before starting the backend.
 # CMD [ -d alembic ] && reflex db migrate; \
 #   exec reflex run --env prod --backend-only --backend-port ${PORT:-8000}
-ENTRYPOINT ["reflex", "run", "--env", "prod", "--backend-only", "--loglevel", "debug", "--backend-port", "${PORT:-8000}"]
+ENTRYPOINT ["reflex", "run", "--env", "prod", "--backend-only", "--loglevel", "debug", "--backend-port", "${PORT}"]
 
 # RUN reflex export --backend-only --no-zip
 
